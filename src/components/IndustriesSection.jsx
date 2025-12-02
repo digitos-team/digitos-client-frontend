@@ -40,6 +40,12 @@ const industries = [
     icon: "🚗",
     path: "/industries/mobility"
   },
+   {
+    title: "Pathology",
+    description: "Lab report automation, sample tracking, and diagnostic workflow management.",
+    icon: "🧬",
+    path: "/industries/pathology"
+  }
 ];
 
 const IndustriesSection = () => {

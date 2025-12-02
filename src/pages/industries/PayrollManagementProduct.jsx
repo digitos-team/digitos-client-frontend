@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import {
   Calculator,
@@ -196,23 +197,29 @@ const PayrollManagementProduct = () => {
               and save time.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Motion.a
-                href="/contact"
+              <Motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:bg-yellow-400 transition"
               >
-                Request Demo
-                <ArrowRight size={20} />
-              </Motion.a>
-              <Motion.a
-                href="#features"
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:bg-yellow-400 transition"
+                >
+                  Request Demo
+                  <ArrowRight size={20} />
+                </Link>
+              </Motion.div>
+              <Motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 bg-transparent text-yellow-600 px-8 py-4 rounded-full font-semibold border-2 border-yellow-500 hover:bg-yellow-500 hover:text-black transition"
               >
-                Explore Features
-              </Motion.a>
+                <a
+                  href="#features"
+                  className="inline-flex items-center gap-2 bg-transparent text-yellow-600 px-8 py-4 rounded-full font-semibold border-2 border-yellow-500 hover:bg-yellow-500 hover:text-black transition"
+                >
+                  Explore Features
+                </a>
+              </Motion.div>
             </div>
           </Motion.div>
         </div>
@@ -243,11 +250,10 @@ const PayrollManagementProduct = () => {
                   onClick={() => setActiveDashboard(dashboard.id)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                    activeDashboard === dashboard.id
+                  className={`flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeDashboard === dashboard.id
                       ? 'bg-yellow-500 text-black shadow-lg'
                       : 'bg-white text-yellow-600 border-2 border-yellow-500/40 hover:border-yellow-400'
-                  }`}
+                    }`}
                 >
                   <Icon size={20} />
                   <span>{dashboard.title}</span>
@@ -485,15 +491,18 @@ const PayrollManagementProduct = () => {
             <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
               Join hundreds of businesses that trust our payroll system for accurate, compliant, and timely processing.
             </p>
-            <Motion.a
-              href="/contact"
+            <Motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:bg-yellow-400 transition"
             >
-              Get Started Today
-              <ArrowRight size={20} />
-            </Motion.a>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:bg-yellow-400 transition"
+              >
+                Get Started Today
+                <ArrowRight size={20} />
+              </Link>
+            </Motion.div>
           </Motion.div>
         </div>
       </section>

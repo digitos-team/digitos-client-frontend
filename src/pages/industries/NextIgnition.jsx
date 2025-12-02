@@ -161,14 +161,17 @@ const NextIgnition = () => {
                                 <ArrowRight size={20} />
                             </Motion.a>
 
-                            <Motion.a
-                                href="#features"
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 bg-white text-yellow-600 px-8 py-4 rounded-full font-semibold border-2 border-yellow-200 hover:border-yellow-400 transition"
                             >
-                                Learn More
-                            </Motion.a>
+                                <a
+                                    href="#features"
+                                    className="inline-flex items-center gap-2 bg-white text-yellow-600 px-8 py-4 rounded-full font-semibold border-2 border-yellow-200 hover:border-yellow-400 transition"
+                                >
+                                    Learn More
+                                </a>
+                            </Motion.div>
                         </div>
                     </Motion.div>
                 </div>

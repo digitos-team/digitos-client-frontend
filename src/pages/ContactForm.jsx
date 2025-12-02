@@ -23,11 +23,19 @@ const ContactForm = () => {
     const requiredFields = ['name', 'email', 'phone', 'company', 'message'];
     const missing = requiredFields.filter(field => !reqData[field] || reqData[field].trim() === '');
     
+    // ✅ Phone 10-digit validation
+if (!/^\d{10}$/.test(reqData.phone)) {
+  setSubmitError("Phone number must be exactly 10 digits");
+  setLoading(false);
+  return;
+}
+
     if (missing.length > 0) {
       setSubmitError(`Please fill: ${missing.join(', ')}`);
       setLoading(false);
       return;
     }
+
 
     console.log('📤 Sending:', reqData);
 
@@ -91,7 +99,7 @@ const ContactForm = () => {
 
           <div className="relative">
             <input type="text" name="company" className={inputClasses} required />
-            <label className={labelClasses}>Company Name</label>
+            <label className={labelClasses}> Business Name</label>
           </div>
 
           <div className="relative md:col-span-2">

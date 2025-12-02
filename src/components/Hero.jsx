@@ -1,20 +1,17 @@
 import { motion as Motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
+// import heroimage from "../assets/herosectionimg.jpeg";
+import herosection from "../assets/herosection.jpeg";
 const Hero = () => {
   return (
-    <section className="relative w-full h-[880px] sm:h-[90vh] overflow-hidden flex items-start sm:items-center justify-center pt-24 sm:pt-0">
+    <section className="relative w-full h-[880px] sm:h-[90vh] overflow-hidden flex items-center justify-center">
 
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover hero-video"
-        src="https://videos.pexels.com/video-files/854088/854088-hd_1920_1080_25fps.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
+      {/* Background Image */}
+      <img
+        className="absolute inset-0 w-full h-full object-cover hero-image"
+        src={herosection}
+        alt="Hero Background"
       />
 
       {/* Gradient Overlay */}

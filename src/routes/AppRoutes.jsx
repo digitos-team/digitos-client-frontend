@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LoadingFallback from '../components/LoadingFallback'
+import Pathology from '../pages/industries/Pathology'
 
 // Lazy load all pages
 const Home = lazy(() => import('../pages/Home'))
@@ -50,6 +51,7 @@ const AppRoutes = () => {
         <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
         <Route path="/industries/financial-services" element={<FinancialServices />} />
         <Route path="/industries/mobility" element={<Mobility />} />
+        <Route path="/industries/pathology" element={<Pathology />} />
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<ContactForm />} />
 

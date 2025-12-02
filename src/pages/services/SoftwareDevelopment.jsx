@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
     Code2,
     Layers,
@@ -101,23 +102,29 @@ const SoftwareDevelopment = () => {
                             secure software that transforms your business operations and drives digital innovation.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Motion.a
-                                href="/contact"
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
                             >
-                                Start Your Project
-                                <ArrowRight size={20} />
-                            </Motion.a>
-                            <Motion.a
-                                href="#solutions"
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
+                                >
+                                    Start Your Project
+                                    <ArrowRight size={20} />
+                                </Link>
+                            </Motion.div>
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold border-2 border-primary/20 hover:border-primary/40 transition"
                             >
-                                Explore Solutions
-                            </Motion.a>
+                                <a
+                                    href="#solutions"
+                                    className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold border-2 border-primary/20 hover:border-primary/40 transition"
+                                >
+                                    Explore Solutions
+                                </a>
+                            </Motion.div>
                         </div>
                     </Motion.div>
                 </div>
@@ -338,15 +345,18 @@ const SoftwareDevelopment = () => {
                         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                             Transform your vision into reality with our expert software development team.
                         </p>
-                        <Motion.a
-                            href="/contact"
+                        <Motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
                         >
-                            Schedule a Consultation
-                            <ArrowRight size={20} />
-                        </Motion.a>
+                            <Link
+                                to="/contact"
+                                className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
+                            >
+                                Schedule a Consultation
+                                <ArrowRight size={20} />
+                            </Link>
+                        </Motion.div>
                     </Motion.div>
                 </div>
             </section>

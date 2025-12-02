@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
     Smartphone,
     Zap,
@@ -97,23 +98,29 @@ const AppDevelopment = () => {
                             drive growth, and deliver exceptional experiences across iOS and Android platforms.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Motion.a
-                                href="/contact"
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
                             >
-                                Start Your Project
-                                <ArrowRight size={20} />
-                            </Motion.a>
-                            <Motion.a
-                                href="#process"
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
+                                >
+                                    Start Your Project
+                                    <ArrowRight size={20} />
+                                </Link>
+                            </Motion.div>
+                            <Motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold border-2 border-primary/20 hover:border-primary/40 transition"
                             >
-                                Our Process
-                            </Motion.a>
+                                <a
+                                    href="#process"
+                                    className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold border-2 border-primary/20 hover:border-primary/40 transition"
+                                >
+                                    Our Process
+                                </a>
+                            </Motion.div>
                         </div>
                     </Motion.div>
                 </div>
@@ -272,15 +279,18 @@ const AppDevelopment = () => {
                         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                             Let's discuss your project and create a mobile experience that drives results.
                         </p>
-                        <Motion.a
-                            href="/contact"
+                        <Motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
                         >
-                            Get Started Today
-                            <ArrowRight size={20} />
-                        </Motion.a>
+                            <Link
+                                to="/contact"
+                                className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
+                            >
+                                Get Started Today
+                                <ArrowRight size={20} />
+                            </Link>
+                        </Motion.div>
                     </Motion.div>
                 </div>
             </section>

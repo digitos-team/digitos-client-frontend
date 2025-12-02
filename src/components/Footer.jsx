@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Linkedin, Mail, Phone, Instagram, X as XIcon } from 'lucide-react'
 import RgbLight from '../assets/RgbLight.png'
+import { MapPin } from "lucide-react";
+
 const quickLinks = [
   { label: 'About Us', path: '/about' },
   { label: 'Services', path: '/services' },
@@ -70,8 +72,17 @@ const Footer = () => {
             Contact
           </p>
 
-          <div className="mt-4 space-y-3 text-white/80">
-            <p>Hudco Colony, Chhatrapati Sambhajinagar</p>
+       <div className="mt-4 space-y-3 text-white/80">
+ <a
+  href="https://maps.app.goo.gl/5XVDchMPkCC9cRyb9"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:underline flex items-center gap-2"
+>
+  <MapPin className="w-5 h-5 text-white/80" />
+  <span>Plot No 7, N-11 K-Cidco, Chattrapati Sambhajinagar</span>
+</a>
+
 
           <p className="flex items-center gap-2">
   <Phone size={16} className="text-accent" />
