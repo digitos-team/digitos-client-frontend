@@ -1,0 +1,62 @@
+import { lazy, Suspense } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import LoadingFallback from '../components/LoadingFallback'
+
+// Lazy load all pages
+const Home = lazy(() => import('../pages/Home'))
+const About = lazy(() => import('../pages/About'))
+const Services = lazy(() => import('../pages/Services'))
+const Industries = lazy(() => import('../pages/Industries'))
+const Career = lazy(() => import('../pages/Career'))
+const ContactForm = lazy(() => import('../pages/ContactForm'))
+
+// Service detail pages
+const AppDevelopment = lazy(() => import('../pages/services/AppDevelopment'))
+const SoftwareDevelopment = lazy(() => import('../pages/services/SoftwareDevelopment'))
+const PayrollManagement = lazy(() => import('../pages/services/PayrollManagement'))
+const ERPSolutions = lazy(() => import('../pages/services/ERPSolutions'))
+const CloudDevOps = lazy(() => import('../pages/services/CloudDevOps'))
+const AIToolDevelopment = lazy(() => import('../pages/services/AIToolDevelopment'))
+
+// Industry product pages
+const NextIgnition = lazy(() => import('../pages/industries/NextIgnition'))
+const PayrollManagementProduct = lazy(() => import('../pages/industries/PayrollManagementProduct'))
+const HospitalManagement = lazy(() => import('../pages/industries/HospitalManagement'))
+const StudentPortal = lazy(() => import('../pages/industries/StudentPortal'))
+const Ecommerce = lazy(() => import('../pages/industries/Ecommerce'))
+const TicketRaisingTool = lazy(() => import('../pages/industries/TicketRaisingTool'))
+const FinancialServices = lazy(() => import('../pages/industries/FinancialServices'))
+const Mobility = lazy(() => import('../pages/industries/Mobility'))
+
+const AppRoutes = () => {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/app-development" element={<AppDevelopment />} />
+        <Route path="/services/software-development" element={<SoftwareDevelopment />} />
+        <Route path="/services/payroll-management" element={<PayrollManagement />} />
+        <Route path="/services/erp-solutions" element={<ERPSolutions />} />
+        <Route path="/services/cloud-devops" element={<CloudDevOps />} />
+        <Route path="/services/ai-tool-development" element={<AIToolDevelopment />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/industries/next-ignition" element={<NextIgnition />} />
+        <Route path="/industries/payroll-management" element={<PayrollManagementProduct />} />
+        <Route path="/industries/hospital-management" element={<HospitalManagement />} />
+        <Route path="/industries/student-portal" element={<StudentPortal />} />
+        <Route path="/industries/ecommerce" element={<Ecommerce />} />
+        <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
+        <Route path="/industries/financial-services" element={<FinancialServices />} />
+        <Route path="/industries/mobility" element={<Mobility />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/contact" element={<ContactForm />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Suspense>
+  )
+}
+
+export default AppRoutes
