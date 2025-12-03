@@ -1,7 +1,5 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowRight } from "lucide-react";
 
 const industries = [
   {
@@ -40,7 +38,7 @@ const industries = [
     icon: "🚗",
     path: "/industries/mobility"
   },
-   {
+  {
     title: "Pathology",
     description: "Lab report automation, sample tracking, and diagnostic workflow management.",
     icon: "🧬",
@@ -49,36 +47,6 @@ const industries = [
 ];
 
 const IndustriesSection = () => {
-  const scrollContainerRef = useRef(null);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, x: 40 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
     <section className="page-section bg-white relative overflow-hidden">
       {/* Subtle background gradient */}
@@ -87,47 +55,26 @@ const IndustriesSection = () => {
       <div className="relative z-10">
         {/* Header */}
         <div className="container-grid mb-12 md:mb-16">
-          <Motion.div
-            className="space-y-3 md:space-y-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Motion.p
-              variants={itemVariants}
-              className="text-sm font-semibold uppercase tracking-[0.3em] text-accent"
-            >
+          <div className="space-y-3 md:space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
               Industries
-            </Motion.p>
-            <Motion.h2
-              variants={itemVariants}
-              className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary"
-            >
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary">
               Deep domain expertise across regulated and high-growth sectors.
-            </Motion.h2>
-            <Motion.p
-              variants={itemVariants}
-              className="text-base md:text-lg text-black/70 max-w-3xl leading-relaxed"
-            >
+            </h2>
+            <p className="text-base md:text-lg text-black/70 max-w-3xl leading-relaxed">
               We embed subject-matter experts and solution architects to tailor roadmaps to your industry's compliance and scaling needs.
-            </Motion.p>
-            <Motion.p
-              variants={itemVariants}
-              className="text-sm text-black/50 flex items-center gap-2 pt-2"
-            >
+            </p>
+            <p className="text-sm text-black/50 flex items-center gap-2 pt-2">
               <ChevronRight size={16} className="text-accent" />
               Scroll horizontally to explore more industries
-            </Motion.p>
-          </Motion.div>
+            </p>
+          </div>
         </div>
 
         {/* Horizontal Scroll Container */}
-        <div
-          className="relative overflow-hidden w-full"
-        >
+        <div className="relative overflow-hidden w-full">
           <div
-            ref={scrollContainerRef}
             className="flex overflow-x-auto scrollbar-hide pb-4"
             style={{
               scrollBehavior: "smooth",
@@ -135,33 +82,18 @@ const IndustriesSection = () => {
               WebkitOverflowScrolling: "touch",
             }}
           >
-            <div
-              className="flex gap-6 md:gap-8 px-4 md:px-6 min-w-max"
-            >
-              {industries.map((industry, index) => (
+            <div className="flex gap-6 md:gap-8 px-4 md:px-6 min-w-max">
+              {industries.map((industry) => (
                 <Link
                   key={industry.title}
                   to={industry.path}
                   className="block"
                 >
-                  <Motion.div
-                    variants={cardVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    whileHover={{
-                      y: -12,
-                    }}
-                    className="group flex-shrink-0 w-72 md:w-80 rounded-3xl border-2 border-black/8 bg-white p-8 shadow-sm transition-all duration-300 cursor-pointer hover:border-accent/40 hover:shadow-lg scroll-snap-align-start"
-                  >
+                  <div className="group flex-shrink-0 w-72 md:w-80 rounded-3xl border-2 border-black/8 bg-white p-8 shadow-sm transition-all duration-300 cursor-pointer hover:border-accent/40 hover:shadow-lg scroll-snap-align-start">
                     {/* Icon */}
-                    <Motion.div
-                      className="text-5xl md:text-6xl mb-4"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <div className="text-5xl md:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
                       {industry.icon}
-                    </Motion.div>
+                    </div>
 
                     {/* Title Badge */}
                     <p className="text-xs md:text-xs uppercase tracking-[0.4em] text-accent font-semibold mb-3">
@@ -169,7 +101,7 @@ const IndustriesSection = () => {
                     </p>
 
                     {/* Card Title */}
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-primary">
+                    <h3 className="font-display text-xl md:text-2xl font-semibold text-primary group-hover:text-accent transition-colors duration-300">
                       {industry.title}
                     </h3>
 
@@ -179,17 +111,14 @@ const IndustriesSection = () => {
                     </p>
 
                     {/* Arrow Indicator */}
-                    <Motion.div
-                      className="mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition duration-300"
-                      whileHover={{ x: 8 }}
-                    >
+                    <div className="mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span className="text-xs font-semibold uppercase tracking-wide">Explore</span>
                       <ArrowRight size={16} />
-                    </Motion.div>
+                    </div>
 
                     {/* Hover line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                  </Motion.div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
                 </Link>
               ))}
             </div>

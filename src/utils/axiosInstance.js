@@ -1,44 +1,78 @@
 import axios from 'axios';
+import { store } from '../components/Admin Folder/redux/store';
+import { logout } from '../components/Admin Folder/redux/authSlice';
 
 // Create axios instance with base configuration
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/',
-    timeout: 30000,
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000',
+    timeout: 10000,
+    headers: {
+        'Content-Type': 'application/json',
+    },
 });
 
-// Request interceptor
+// Request interceptor - Add auth token to requests
 axiosInstance.interceptors.request.use(
     (config) => {
-        // You can add auth tokens here if needed
-        // const token = localStorage.getItem('token');
-        // if (token) {
-        //   config.headers.Authorization = `Bearer ${token}`;
-        // }
+        // Skip adding token for login and register endpoints
+        const isAuthEndpoint = config.url?.includes('/auth/login') || config.url?.includes('/auth/register');
+
+        if (!isAuthEndpoint) {
+            // Get token from Redux store (single source of truth)
+            const state = store.getState();
+            const token = state.auth.token;
+
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`;
+            }
+        }
+
         return config;
     },
-
-
     (error) => {
         return Promise.reject(error);
     }
 );
 
-// Response interceptor
+// Response interceptor - Handle errors globally
 axiosInstance.interceptors.response.use(
     (response) => {
         return response;
     },
     (error) => {
-        // Handle common errors
         if (error.response) {
-            // Server responded with error status
-            console.error('API Error:', error.response.data);
+            // Handle specific error codes
+            switch (error.response.status) {
+                case 401:
+                    // Only logout if it's not a login/register endpoint failure
+                    const isAuthEndpoint = error.config?.url?.includes('/auth/login') ||
+                        error.config?.url?.includes('/auth/register');
+
+                    if (!isAuthEndpoint) {
+                        // Unauthorized on protected route - clear token and redirect
+                        console.error('Session expired or invalid token');
+                        store.dispatch(logout());
+                        window.location.href = '/digitos/admin';
+                    }
+                    // If it's a login failure, let the component handle it
+                    break;
+                case 403:
+                    console.error('Access forbidden');
+                    break;
+                case 404:
+                    console.error('Resource not found');
+                    break;
+                case 500:
+                    console.error('Server error');
+                    break;
+                default:
+                    const errorMessage = error.response?.data?.message || error.response?.data || error.message;
+                    console.error('An error occurred:', errorMessage);
+            }
         } else if (error.request) {
-            // Request made but no response
-            console.error('Network Error:', error.message);
+            console.error('No response received from server');
         } else {
-            // Something else happened
-            console.error('Error:', error.message);
+            console.error('Error setting up request:', error.message);
         }
         return Promise.reject(error);
     }

@@ -19,6 +19,7 @@ const ERPSolutions = lazy(() => import('../pages/services/ERPSolutions'))
 const CloudDevOps = lazy(() => import('../pages/services/CloudDevOps'))
 const AIToolDevelopment = lazy(() => import('../pages/services/AIToolDevelopment'))
 
+
 // Industry product pages
 const NextIgnition = lazy(() => import('../pages/industries/NextIgnition'))
 const PayrollManagementProduct = lazy(() => import('../pages/industries/PayrollManagementProduct'))
@@ -29,31 +30,59 @@ const TicketRaisingTool = lazy(() => import('../pages/industries/TicketRaisingTo
 const FinancialServices = lazy(() => import('../pages/industries/FinancialServices'))
 const Mobility = lazy(() => import('../pages/industries/Mobility'))
 
+import ProtectedRoute from '../components/Admin Folder/ProtectedRoute'
+
+// Admin Components
+const Login = lazy(() => import('../components/Admin Folder/Login'))
+const ApplicationList = lazy(() => import('../components/Admin Folder/ApplicationList'))
+const AddJobPosition = lazy(() => import('../components/Admin Folder/AddJobPosition'))
+const ClientMessages = lazy(() => import('../components/Admin Folder/ClientMessages'))
+
+const PublicLayout = lazy(() => import('./PublicLayout'))
+const AdminLayout = lazy(() => import('../components/Admin Folder/AdminLayout'))
+
 const AppRoutes = () => {
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/app-development" element={<AppDevelopment />} />
-        <Route path="/services/software-development" element={<SoftwareDevelopment />} />
-        <Route path="/services/payroll-management" element={<PayrollManagement />} />
-        <Route path="/services/erp-solutions" element={<ERPSolutions />} />
-        <Route path="/services/cloud-devops" element={<CloudDevOps />} />
-        <Route path="/services/ai-tool-development" element={<AIToolDevelopment />} />
-        <Route path="/industries" element={<Industries />} />
-        <Route path="/industries/next-ignition" element={<NextIgnition />} />
-        <Route path="/industries/payroll-management" element={<PayrollManagementProduct />} />
-        <Route path="/industries/hospital-management" element={<HospitalManagement />} />
-        <Route path="/industries/student-portal" element={<StudentPortal />} />
-        <Route path="/industries/ecommerce" element={<Ecommerce />} />
-        <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
-        <Route path="/industries/financial-services" element={<FinancialServices />} />
-        <Route path="/industries/mobility" element={<Mobility />} />
-        <Route path="/industries/pathology" element={<Pathology />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/contact" element={<ContactForm />} />
+        {/* Public Routes */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/app-development" element={<AppDevelopment />} />
+          <Route path="/services/software-development" element={<SoftwareDevelopment />} />
+          <Route path="/services/payroll-management" element={<PayrollManagement />} />
+          <Route path="/services/erp-solutions" element={<ERPSolutions />} />
+          <Route path="/services/cloud-devops" element={<CloudDevOps />} />
+          <Route path="/services/ai-tool-development" element={<AIToolDevelopment />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/next-ignition" element={<NextIgnition />} />
+          <Route path="/industries/payroll-management" element={<PayrollManagementProduct />} />
+          <Route path="/industries/hospital-management" element={<HospitalManagement />} />
+          <Route path="/industries/student-portal" element={<StudentPortal />} />
+          <Route path="/industries/ecommerce" element={<Ecommerce />} />
+          <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
+          <Route path="/industries/financial-services" element={<FinancialServices />} />
+          <Route path="/industries/mobility" element={<Mobility />} />
+          <Route path="/industries/pathology" element={<Pathology />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/contact" element={<ContactForm />} />
+        </Route>
+
+        {/* Admin Login (No Layout) */}
+        <Route path="/admin" element={<Login />} />
+
+        {/* Protected Admin Routes */}
+        <Route element={
+          <ProtectedRoute>
+            <AdminLayout />
+          </ProtectedRoute>
+        }>
+          <Route path="/admin/applications" element={<ApplicationList />} />
+          <Route path="/admin/add-job" element={<AddJobPosition />} />
+          <Route path="/admin/messages" element={<ClientMessages />} />
+        </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

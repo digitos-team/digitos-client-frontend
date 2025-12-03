@@ -11,7 +11,11 @@ export const getAllJobPositions = async () => {
 
 export const applyForJob = async (formData) => {
     try {
-        const response = await axiosInstance.post('/jobs/apply', formData);
+        const response = await axiosInstance.post('/jobs/apply', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
         return response.data;
     } catch (error) {
         throw error.response?.data || error.message;
