@@ -56,12 +56,12 @@ const About = () => {
         <Motion.div
           {...fadeUp}
           transition={{ duration: 0.6 }}
-          className="container-grid space-y-6 py-20 text-center"
+          className="container-grid space-y-3 sm:space-y-4 md:space-y-6 py-12 sm:py-16 md:py-20 text-center"
         >
           <Motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-sm font-semibold uppercase tracking-[0.4em] text-accent"
+            className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.4em] text-accent"
           >
             About Digitos IT Solutions Pvt. Ltd.
           </Motion.p>
@@ -69,7 +69,7 @@ const About = () => {
           <Motion.h1
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-4xl font-bold text-primary md:text-6xl leading-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-primary leading-tight"
           >
             Building Future-Ready Software with AI, Automation & Engineering Excellence.
           </Motion.h1>
@@ -78,7 +78,7 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mx-auto max-w-3xl text-lg text-black/70"
+            className="mx-auto max-w-3xl text-sm sm:text-base md:text-lg text-black/70"
           >
             We help organizations reimagine processes, modernize legacy systems, and engineer high-performance digital products that scale effortlessly.
           </Motion.p>
@@ -93,11 +93,11 @@ const About = () => {
         transition={{ duration: 0.6 }}
         className="page-section bg-white"
       >
-        <div className="container-grid space-y-6">
+        <div className="container-grid space-y-4 sm:space-y-6">
           <Motion.h2
             {...fadeUp}
             transition={{ duration: 0.5 }}
-            className="font-display text-3xl font-semibold text-primary md:text-4xl"
+            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-primary"
           >
             Our Journey
           </Motion.h2>
@@ -105,7 +105,7 @@ const About = () => {
           <Motion.p
             {...fadeUp}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="max-w-4xl text-lg text-black/70 leading-relaxed"
+            className="max-w-4xl text-sm sm:text-base md:text-lg text-black/70 leading-relaxed"
           >
             Founded in <strong>June 2024</strong> in Chhatrapati Sambhajinagar, Maharashtra, Digitos IT Solutions Pvt. Ltd.
             started as a small but focused digital engineering studio. Today, we partner with
@@ -148,22 +148,22 @@ const About = () => {
         <div className="container-grid relative z-10">
           {/* Section Header */}
           <Motion.div
-            className="mb-12 text-center space-y-3"
+            className="mb-6 sm:mb-8 md:mb-12 text-center space-y-2 sm:space-y-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-accent">
               Core Pillars
             </p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary">
+            <h2 className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-primary">
               Mission, Vision & Purpose
             </h2>
           </Motion.div>
 
           {/* Cards Grid */}
-          <div className="grid gap-8 md:gap-6 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 md:gap-6 md:grid-cols-3">
             {[
               {
                 label: "Mission",
@@ -205,7 +205,7 @@ const About = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: i * 0.15 }}
                   whileHover={{ y: -12 }}
-                  className={`group relative rounded-3xl backdrop-blur-md border-2 ${item.borderColor} ${item.bgColor} p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}
+                  className={`group relative rounded-2xl sm:rounded-3xl backdrop-blur-md border-2 ${item.borderColor} ${item.bgColor} p-5 sm:p-6 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}
                 >
                   {/* Gradient background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-40 group-hover:opacity-60 transition duration-300`} />
@@ -214,31 +214,31 @@ const About = () => {
                   <div className="relative z-10">
                     {/* Icon */}
                     <Motion.div
-                      className={`inline-flex rounded-2xl p-3 mb-6 ${item.bgColor} border-2 ${item.borderColor}`}
+                      className={`inline-flex rounded-xl sm:rounded-2xl p-2 sm:p-3 mb-4 sm:mb-6 ${item.bgColor} border-2 ${item.borderColor}`}
                       whileHover={{ scale: 1.15, rotate: 10 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className={`${item.accentColor} w-7 h-7`} />
+                      <Icon className={`${item.accentColor} w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7`} />
                     </Motion.div>
 
                     {/* Label */}
-                    <p className="text-xs uppercase tracking-[0.4em] font-bold text-black/60 group-hover:text-primary transition duration-300">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-bold text-black/60 group-hover:text-primary transition duration-300">
                       {item.label}
                     </p>
 
                     {/* Title */}
-                    <h3 className={`mt-4 font-display text-2xl md:text-xl font-bold ${item.accentColor} group-hover:text-primary transition duration-300`}>
+                    <h3 className={`mt-2 sm:mt-4 font-display text-base sm:text-lg md:text-xl font-bold ${item.accentColor} group-hover:text-primary transition duration-300`}>
                       {item.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-4 text-black/75 leading-relaxed font-medium">
+                    <p className="mt-2 sm:mt-4 text-xs sm:text-sm text-black/75 leading-relaxed font-medium">
                       {item.text}
                     </p>
 
                     {/* Decorative line */}
                     <Motion.div
-                      className={`mt-6 h-1 bg-gradient-to-r ${item.gradient} rounded-full`}
+                      className={`mt-4 sm:mt-6 h-0.5 sm:h-1 bg-gradient-to-r ${item.gradient} rounded-full`}
                       initial={{ width: "0%" }}
                       whileInView={{ width: "100%" }}
                       viewport={{ once: true }}
@@ -247,7 +247,7 @@ const About = () => {
                   </div>
 
                   {/* Hover shine effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition bg-gradient-to-br from-white via-transparent to-transparent rounded-3xl" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition bg-gradient-to-br from-white via-transparent to-transparent rounded-2xl sm:rounded-3xl" />
                 </Motion.div>
               );
             })}
@@ -288,16 +288,16 @@ const About = () => {
         <div className="container-grid relative z-10">
           {/* Section Header */}
           <Motion.div
-            className="mb-12 text-center space-y-3"
+            className="mb-6 sm:mb-8 md:mb-12 text-center space-y-2 sm:space-y-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-accent">
               Core Values
             </p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary">
+            <h2 className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-primary">
               How We Work
             </h2>
           </Motion.div>
@@ -308,7 +308,7 @@ const About = () => {
             whileInView="animate"
             viewport={{ once: true }}
             transition={{ staggerChildren: 0.15 }}
-            className="grid gap-8 md:gap-6 md:grid-cols-3"
+            className="grid gap-4 sm:gap-6 md:gap-6 md:grid-cols-3"
           >
             {values.map((value, i) => {
               const Icon = value.icon;
@@ -318,7 +318,7 @@ const About = () => {
                   variants={fadeUp}
                   transition={{ duration: 0.45 }}
                   whileHover={{ y: -12 }}
-                  className={`group relative rounded-3xl backdrop-blur-md border-2 ${value.borderColor} ${value.bgColor} p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}
+                  className={`group relative rounded-2xl sm:rounded-3xl backdrop-blur-md border-2 ${value.borderColor} ${value.bgColor} p-5 sm:p-6 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}
                 >
                   {/* Gradient background */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-40 group-hover:opacity-60 transition duration-300`} />
@@ -327,31 +327,31 @@ const About = () => {
                   <div className="relative z-10">
                     {/* Icon */}
                     <Motion.div
-                      className={`inline-flex rounded-2xl p-3 mb-6 ${value.bgColor} border-2 ${value.borderColor}`}
+                      className={`inline-flex rounded-xl sm:rounded-2xl p-2 sm:p-3 mb-4 sm:mb-6 ${value.bgColor} border-2 ${value.borderColor}`}
                       whileHover={{ scale: 1.15, rotate: 10 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className={`${value.accentColor} w-7 h-7`} />
+                      <Icon className={`${value.accentColor} w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7`} />
                     </Motion.div>
 
                     {/* Label */}
-                    <p className="text-xs uppercase tracking-[0.4em] font-bold text-black/60 group-hover:text-primary transition duration-300">
-                     We  Value
+                    <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-bold text-black/60 group-hover:text-primary transition duration-300">
+                      We  Value
                     </p>
 
                     {/* Title */}
-                    <h3 className={`mt-4 font-display text-2xl md:text-xl font-bold ${value.accentColor} group-hover:text-primary transition duration-300`}>
+                    <h3 className={`mt-2 sm:mt-4 font-display text-base sm:text-lg md:text-xl font-bold ${value.accentColor} group-hover:text-primary transition duration-300`}>
                       {value.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-4 text-black/75 leading-relaxed font-medium">
+                    <p className="mt-2 sm:mt-4 text-xs sm:text-sm text-black/75 leading-relaxed font-medium">
                       {value.detail}
                     </p>
 
                     {/* Decorative line */}
                     <Motion.div
-                      className={`mt-6 h-1 bg-gradient-to-r ${value.gradient} rounded-full`}
+                      className={`mt-4 sm:mt-6 h-0.5 sm:h-1 bg-gradient-to-r ${value.gradient} rounded-full`}
                       initial={{ width: "0%" }}
                       whileInView={{ width: "100%" }}
                       viewport={{ once: true }}
@@ -360,7 +360,7 @@ const About = () => {
                   </div>
 
                   {/* Hover shine effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition bg-gradient-to-br from-white via-transparent to-transparent rounded-3xl" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition bg-gradient-to-br from-white via-transparent to-transparent rounded-2xl sm:rounded-3xl" />
                 </Motion.article>
               );
             })}

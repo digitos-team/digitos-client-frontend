@@ -97,12 +97,12 @@ const Career = () => {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#fff7ea] to-[#fffaf0] pt-24 pb-12 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#fff7ea] to-[#fffaf0] pt-16 pb-8 sm:pt-20 sm:pb-10 md:pt-32 md:pb-20">
         <div className="container-grid text-center relative z-10">
-          <h1 className="mt-4 font-display text-4xl font-bold text-primary md:text-6xl leading-tight">
+          <h1 className="mt-2 sm:mt-4 font-display text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-primary leading-tight">
             Build the Future With Us
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-black/70">
+          <p className="mx-auto mt-3 sm:mt-4 md:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-black/70">
             We are always looking for passionate individuals who want to make an
             impact. Explore our open positions and find your next challenge.
           </p>
@@ -111,40 +111,40 @@ const Career = () => {
 
       <section className="page-section bg-white">
         <div className="container-grid">
-          <div className="mb-12 text-center">
-            <h2 className="font-display text-3xl font-semibold text-primary">Current Openings</h2>
-            <p className="mt-2 text-black/60">Find the role that fits your skills and aspirations.</p>
+          <div className="mb-6 sm:mb-8 md:mb-12 text-center">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold text-primary">Current Openings</h2>
+            <p className="mt-1 sm:mt-2 text-sm sm:text-base text-black/60">Find the role that fits your skills and aspirations.</p>
           </div>
 
           {loading ? (
-            <div className="flex justify-center items-center py-20">
-              <Loader2 className="animate-spin text-accent" size={48} />
+            <div className="flex justify-center items-center py-12 sm:py-16 md:py-20">
+              <Loader2 className="animate-spin text-accent" size={36} />
             </div>
           ) : jobs.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-lg text-black/60">No positions available at the moment. Please check back later!</p>
+            <div className="text-center py-12 sm:py-16 md:py-20">
+              <p className="text-sm sm:text-base md:text-lg text-black/60">No positions available at the moment. Please check back later!</p>
             </div>
           ) : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {jobs.map((job, index) => (
                 <div
                   key={job._id}
                   onClick={() => handleSelectJob(job._id)}
-                  className="cursor-pointer group relative flex flex-col justify-between rounded-3xl border border-black/5 bg-white p-8 shadow-sm transition-all hover:shadow-xl hover:border-accent/30"
+                  className="cursor-pointer group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-black/5 bg-white p-5 sm:p-6 md:p-8 shadow-sm transition-all hover:shadow-xl hover:border-accent/30"
                 >
                   <div>
-                    <div className="mb-4 flex items-center justify-end">
-                      <Briefcase size={20} className="text-black/30" />
+                    <div className="mb-3 sm:mb-4 flex items-center justify-end">
+                      <Briefcase size={18} className="text-black/30 sm:w-5 sm:h-5" />
                     </div>
 
-                    <div className="space-y-1 mb-6">
-                      <h3 className="font-display text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                    <div className="space-y-1 mb-4 sm:mb-6">
+                      <h3 className="font-display text-base sm:text-lg md:text-xl font-bold text-primary group-hover:text-accent transition-colors">
                         {job.title}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-black/70">
+                      <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-black/70">
                         {job.experienceRequired && (
                           <span className="flex items-center gap-1">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             {job.experienceRequired}
@@ -152,7 +152,7 @@ const Career = () => {
                         )}
                         {job.location && (
                           <span className="flex items-center gap-1">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -162,11 +162,11 @@ const Career = () => {
                       </div>
                     </div>
 
-                    <p className="text-sm text-black/60 leading-relaxed">{job.description}</p>
+                    <p className="text-xs sm:text-sm text-black/60 leading-relaxed">{job.description}</p>
 
                     <button
                       type="button"
-                      className="mt-6 rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white transition-all hover:bg-accent hover:shadow-lg"
+                      className="mt-4 sm:mt-6 rounded-full bg-primary px-4 sm:px-6 py-2 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-accent hover:shadow-lg"
                     >
                       Apply Now
                     </button>
@@ -177,8 +177,8 @@ const Career = () => {
           )}
 
           {/* Section to contact HR if user didn't find a job */}
-          <div className="text-center mt-12">
-            <p className="text-lg text-black/70">
+          <div className="text-center mt-8 sm:mt-10 md:mt-12">
+            <p className="text-sm sm:text-base md:text-lg text-black/70">
               Didn't find a role that matches your skills? You can send your profile and resume directly to{" "}
               <a
                 href="mailto:hr@digitositsolutions.com"
@@ -194,18 +194,18 @@ const Career = () => {
 
       <section ref={formRef} className="page-section bg-[#fffaf0]">
         <div className="container-grid max-w-3xl">
-          <div className="rounded-3xl bg-white p-8 shadow-xl md:p-12">
-            <div className="mb-8 text-center">
-              <h2 className="font-display text-3xl font-semibold text-primary">
+          <div className="rounded-2xl sm:rounded-3xl bg-white p-5 sm:p-6 md:p-8 lg:p-12 shadow-xl">
+            <div className="mb-5 sm:mb-6 md:mb-8 text-center">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-semibold text-primary">
                 Apply Now
               </h2>
-              <p className="mt-2 text-black/60">
+              <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-black/60">
                 Fill in your details below to submit your application.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                 <div className="relative">
                   <input
                     type="text"
@@ -233,7 +233,7 @@ const Career = () => {
                 </div>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                 <div className="relative">
                   <input
                     type="tel"
@@ -292,11 +292,11 @@ const Career = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="rounded-full bg-primary px-8 py-3 font-semibold text-white shadow-lg transition-all hover:bg-accent hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 mx-auto"
+                  className="rounded-full bg-primary px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all hover:bg-accent hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 mx-auto"
                 >
                   {submitting ? (
                     <>
-                      <Loader2 className="animate-spin" size={20} />
+                      <Loader2 className="animate-spin" size={18} />
                       Submitting...
                     </>
                   ) : (

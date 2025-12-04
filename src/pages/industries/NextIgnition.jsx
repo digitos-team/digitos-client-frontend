@@ -134,31 +134,31 @@ const NextIgnition = () => {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full font-semibold mb-6"
+                            className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6"
                         >
-                            <Rocket size={20} />
+                            <Rocket size={16} className="sm:w-5 sm:h-5" />
                             <span>Our Product</span>
                         </Motion.div>
 
-                        <h1 className="font-display text-4xl md:text-6xl font-bold text-primary mb-6">
+                        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-primary mb-3 sm:mb-4 md:mb-6">
                             Next Ignition
                         </h1>
-                        <p className="text-2xl md:text-3xl text-black/80 mb-4 font-semibold">
+                        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black/80 mb-2 sm:mb-3 md:mb-4 font-semibold">
                             The LinkedIn for Startups
                         </p>
-                        <p className="text-xl text-black/70 mb-8 leading-relaxed max-w-3xl mx-auto">
+                        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black/70 mb-5 sm:mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto">
                             Connect, collaborate, and grow with a vibrant community of founders, investors,
                             and startup enthusiasts. Your journey to success starts here.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-4">
+                        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
                             <Motion.a
                                 href="https://nextignition.com"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 bg-yellow-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
+                                className="inline-flex items-center gap-2 bg-yellow-500 text-white px-5 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-base rounded-full font-semibold shadow-lg hover:shadow-xl transition"
                             >
                                 Get Started
-                                <ArrowRight size={20} />
+                                <ArrowRight size={18} className="sm:w-5 sm:h-5" />
                             </Motion.a>
 
                             <Motion.div
@@ -167,7 +167,7 @@ const NextIgnition = () => {
                             >
                                 <a
                                     href="#features"
-                                    className="inline-flex items-center gap-2 bg-white text-yellow-600 px-8 py-4 rounded-full font-semibold border-2 border-yellow-200 hover:border-yellow-400 transition"
+                                    className="inline-flex items-center gap-2 bg-white text-yellow-600 px-5 sm:px-8 py-2.5 sm:py-4 text-sm sm:text-base rounded-full font-semibold border-2 border-yellow-200 hover:border-yellow-400 transition"
                                 >
                                     Learn More
                                 </a>
@@ -180,7 +180,7 @@ const NextIgnition = () => {
             {/* Stats Section */}
             <section className="page-section bg-white">
                 <div className="container-grid">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                         {benefits.map((benefit, index) => {
                             const Icon = benefit.icon;
                             return (
@@ -190,18 +190,18 @@ const NextIgnition = () => {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="text-center p-6 rounded-3xl bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300"
+                                    className="text-center p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300"
                                 >
-                                    <div className="inline-flex p-4 rounded-2xl bg-yellow-100 text-yellow-600 mb-4">
-                                        <Icon size={32} />
+                                    <div className="inline-flex p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl bg-yellow-100 text-yellow-600 mb-3 sm:mb-4">
+                                        <Icon size={20} className="sm:w-6 sm:h-6 md:w-8 md:h-8" />
                                     </div>
-                                    <div className="text-4xl font-display font-bold text-primary mb-2">
+                                    <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary mb-1 sm:mb-2">
                                         {benefit.value}
                                     </div>
-                                    <h3 className="font-display text-lg font-semibold text-primary mb-2">
+                                    <h3 className="font-display text-xs sm:text-sm md:text-lg font-semibold text-primary mb-1 sm:mb-2">
                                         {benefit.title}
                                     </h3>
-                                    <p className="text-sm text-black/70">
+                                    <p className="text-[10px] sm:text-xs md:text-sm text-black/70">
                                         {benefit.description}
                                     </p>
                                 </Motion.div>
@@ -214,16 +214,16 @@ const NextIgnition = () => {
             {/* Features Section */}
             <section id="features" className="page-section bg-gradient-to-b from-yellow-50 to-white">
                 <div className="container-grid">
-                    <div className="text-center mb-12">
-                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-600 mb-4">
+                    <div className="text-center mb-6 sm:mb-8 md:mb-12">
+                        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-yellow-600 mb-2 sm:mb-4">
                             Platform Features
                         </p>
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
+                        <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
                             Everything You Need to Succeed
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {features.map((feature, index) => {
                             const Icon = feature.icon;
                             return (
@@ -233,15 +233,15 @@ const NextIgnition = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="group p-6 rounded-3xl bg-white border border-yellow-200 hover:border-yellow-400 hover:shadow-xl transition-all duration-300"
+                                    className="group p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl bg-white border border-yellow-200 hover:border-yellow-400 hover:shadow-xl transition-all duration-300"
                                 >
-                                    <div className="inline-flex p-3 rounded-2xl bg-yellow-100 text-yellow-600 mb-4 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
-                                        <Icon size={28} />
+                                    <div className="inline-flex p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-yellow-100 text-yellow-600 mb-3 sm:mb-4 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
+                                        <Icon size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
                                     </div>
-                                    <h3 className="font-display text-lg font-semibold text-primary mb-2">
+                                    <h3 className="font-display text-base sm:text-lg font-semibold text-primary mb-1 sm:mb-2">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-sm text-black/70 leading-relaxed">
+                                    <p className="text-xs sm:text-sm text-black/70 leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </Motion.div>
@@ -254,16 +254,16 @@ const NextIgnition = () => {
             {/* How It Works */}
             <section className="page-section bg-white">
                 <div className="container-grid">
-                    <div className="text-center mb-12">
-                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-600 mb-4">
+                    <div className="text-center mb-6 sm:mb-8 md:mb-12">
+                        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-yellow-600 mb-2 sm:mb-4">
                             Getting Started
                         </p>
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">
+                        <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-2 sm:mb-4">
                             How Next Ignition Works
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
                         {howItWorks.map((step, index) => {
                             const Icon = step.icon;
                             return (
@@ -278,16 +278,16 @@ const NextIgnition = () => {
                                     {index < howItWorks.length - 1 && (
                                         <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-yellow-300 to-transparent -z-10"></div>
                                     )}
-                                    <div className="inline-flex p-4 rounded-2xl bg-yellow-100 text-yellow-600 mb-4">
-                                        <Icon size={32} />
+                                    <div className="inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-yellow-100 text-yellow-600 mb-3 sm:mb-4">
+                                        <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8" />
                                     </div>
-                                    <div className="text-sm font-semibold text-yellow-600 mb-2">
+                                    <div className="text-xs sm:text-sm font-semibold text-yellow-600 mb-1 sm:mb-2">
                                         Step {step.step}
                                     </div>
-                                    <h3 className="font-display text-lg font-semibold text-primary mb-2">
+                                    <h3 className="font-display text-base sm:text-lg font-semibold text-primary mb-1 sm:mb-2">
                                         {step.title}
                                     </h3>
-                                    <p className="text-sm text-black/70">
+                                    <p className="text-xs sm:text-sm text-black/70">
                                         {step.description}
                                     </p>
                                 </Motion.div>
@@ -300,16 +300,16 @@ const NextIgnition = () => {
             {/* Use Cases */}
             <section className="page-section bg-gradient-to-b from-yellow-50 to-white">
                 <div className="container-grid">
-                    <div className="text-center mb-12">
-                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-600 mb-4">
+                    <div className="text-center mb-6 sm:mb-8 md:mb-12">
+                        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-yellow-600 mb-2 sm:mb-4">
                             Who It's For
                         </p>
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
+                        <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
                             Built for the Entire Startup Ecosystem
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
                         {useCases.map((useCase, index) => (
                             <Motion.div
                                 key={useCase.title}
@@ -317,16 +317,16 @@ const NextIgnition = () => {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="bg-white rounded-3xl p-6 border border-yellow-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300"
+                                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 border border-yellow-200 hover:border-yellow-400 hover:shadow-lg transition-all duration-300"
                             >
-                                <h3 className="font-display text-xl font-semibold text-primary mb-4">
+                                <h3 className="font-display text-base sm:text-lg md:text-xl font-semibold text-primary mb-3 sm:mb-4">
                                     {useCase.title}
                                 </h3>
-                                <div className="space-y-2">
+                                <div className="space-y-1.5 sm:space-y-2">
                                     {useCase.features.map((feature) => (
                                         <div key={feature} className="flex items-center gap-2">
-                                            <CheckCircle2 size={16} className="text-yellow-600 flex-shrink-0" />
-                                            <span className="text-sm text-black/70">{feature}</span>
+                                            <CheckCircle2 size={14} className="text-yellow-600 flex-shrink-0 sm:w-4 sm:h-4" />
+                                            <span className="text-xs sm:text-sm text-black/70">{feature}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -350,10 +350,10 @@ const NextIgnition = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
+                        <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4 sm:mb-6">
                             Ready to Ignite Your Startup Journey?
                         </h2>
-                        <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-5 sm:mb-6 md:mb-8 max-w-2xl mx-auto">
                             Join thousands of founders, investors, and innovators building the future together.
                         </p>
 
@@ -361,19 +361,19 @@ const NextIgnition = () => {
                             href="https://nextignition.com"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-2 bg-white text-yellow-600 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition"
+                            className="inline-flex items-center gap-2 bg-white text-yellow-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-full font-semibold shadow-lg hover:shadow-xl transition"
                         >
                             Join the Community
-                            <ArrowRight size={20} />
+                            <ArrowRight size={18} className="sm:w-5 sm:h-5" />
                         </Motion.a>
 
                         {/* SOCIAL ICONS SECTION */}
-                        <div className="mt-10">
-                            <p className="text-white/80 text-sm mb-4 tracking-wide uppercase">
+                        <div className="mt-6 sm:mt-8 md:mt-10">
+                            <p className="text-white/80 text-xs sm:text-sm mb-3 sm:mb-4 tracking-wide uppercase">
                                 Follow Us
                             </p>
 
-                            <div className="flex justify-center gap-6">
+                            <div className="flex justify-center gap-4 sm:gap-6">
                                 {[
                                     { Icon: Linkedin, href: "https://www.linkedin.com/company/nextignition-official/" },
                                     { Icon: Instagram, href: "https://www.instagram.com/next__ignition?igsh=ZnZ4N2ZmdHJvMHpo&utm_source=qr" },
@@ -387,7 +387,7 @@ const NextIgnition = () => {
                                         whileHover={{ scale: 1.2, opacity: 1 }}
                                         className="text-white/70 hover:text-white transition opacity-80"
                                     >
-                                        <Icon size={30} />
+                                        <Icon size={24} className="sm:w-7 sm:h-7 md:w-[30px] md:h-[30px]" />
                                     </Motion.a>
                                 ))}
                             </div>

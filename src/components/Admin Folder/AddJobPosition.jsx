@@ -90,19 +90,19 @@ const AddJobPosition = () => {
     };
 
     return (
-        <div className="p-8 max-w-7xl mx-auto">
+        <div className="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
 
             {/* Header */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold font-display text-primary">Job Positions</h1>
-                    <p className="text-gray-500 mt-1">Manage and create job openings</p>
+                    <h1 className="text-2xl sm:text-3xl font-bold font-display text-primary">Job Positions</h1>
+                    <p className="text-gray-500 mt-1 text-xs sm:text-sm">Manage and create job openings</p>
                 </div>
 
                 <button
                     onClick={() => setShowForm(!showForm)}
                     className={`
-                        flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold transition-all duration-200 shadow-lg
+                        w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm sm:text-base rounded-lg sm:rounded-xl font-bold transition-all duration-200 shadow-lg
                         ${showForm
                             ? 'bg-gray-100 text-gray-600 hover:bg-gray-200 shadow-none'
                             : 'bg-primary text-white hover:bg-black/90 shadow-primary/20 hover:shadow-primary/40'

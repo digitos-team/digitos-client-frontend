@@ -66,9 +66,9 @@ const AboutSection = ({ compact = false }) => {
   };
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 overflow-hidden"
+      className="relative w-full py-16 sm:py-20 md:py-32 overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0">
@@ -79,7 +79,7 @@ const AboutSection = ({ compact = false }) => {
         />
 
         {/* Soft Black + Yellow Tint Overlay */}
-        <Motion.div 
+        <Motion.div
           className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-yellow-900/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -96,28 +96,28 @@ const AboutSection = ({ compact = false }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="max-w-3xl w-full rounded-3xl 
+          className="max-w-3xl w-full rounded-2xl sm:rounded-3xl 
                      bg-white/10 backdrop-blur-xl 
-                     p-8 md:p-12 shadow-2xl border border-white/20
+                     p-5 sm:p-6 md:p-12 shadow-2xl border border-white/20
                      hover:border-white/40 transition duration-500"
         >
-          <Motion.p 
+          <Motion.p
             variants={itemVariants}
-            className="text-sm font-semibold uppercase tracking-[0.3em] text-accent"
+            className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-accent"
           >
             About Us
           </Motion.p>
 
-          <Motion.h2 
+          <Motion.h2
             variants={itemVariants}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mt-4"
+            className="font-display text-xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mt-3 sm:mt-4"
           >
             Strategists, designers, and engineers aligned around impact.
           </Motion.h2>
 
-          <Motion.p 
+          <Motion.p
             variants={itemVariants}
-            className="mt-6 text-base md:text-lg text-white/85 leading-relaxed"
+            className="mt-4 sm:mt-6 text-sm md:text-lg text-white/85 leading-relaxed"
           >
             Digitos is a global digital innovation company headquartered in India with
             nearshore talent hubs across Asia and Europe. We assemble cross-functional
@@ -125,9 +125,9 @@ const AboutSection = ({ compact = false }) => {
             engineering to accelerate transformation programs.
           </Motion.p>
 
-          <Motion.p 
+          <Motion.p
             variants={itemVariants}
-            className="mt-4 text-white/70 text-base md:text-lg leading-relaxed"
+            className="mt-3 sm:mt-4 text-white/70 text-sm md:text-lg leading-relaxed"
           >
             We partner with enterprises in finance, healthcare, retail, mobility, and
             emerging industries to modernize systems, launch digital ventures, and
@@ -136,9 +136,9 @@ const AboutSection = ({ compact = false }) => {
 
           {/* Stats */}
           {!compact && (
-            <Motion.div 
+            <Motion.div
               variants={containerVariants}
-              className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6"
+              className="mt-6 sm:mt-10 grid grid-cols-3 gap-3 sm:gap-6"
             >
               {[
                 { label: "NPS", value: "72" },
@@ -149,18 +149,18 @@ const AboutSection = ({ compact = false }) => {
                   key={stat.label}
                   variants={itemVariants}
                   whileHover={{ y: -8, borderColor: "rgba(255, 255, 255, 0.6)" }}
-                  className="rounded-2xl 
+                  className="rounded-xl sm:rounded-2xl 
                              bg-white/10 backdrop-blur-md 
-                             p-6 text-center shadow-lg 
+                             p-3 sm:p-4 md:p-6 text-center shadow-lg 
                              border border-accent/30
                              transition duration-300 cursor-pointer
                              hover:bg-white/15"
                 >
-                  <p className="text-xs md:text-sm uppercase tracking-wide text-white/60 font-semibold">
+                  <p className="text-[10px] sm:text-xs md:text-sm uppercase tracking-wide text-white/60 font-semibold">
                     {stat.label}
                   </p>
-                  <Motion.p 
-                    className="font-display text-3xl md:text-4xl font-semibold text-accent mt-3"
+                  <Motion.p
+                    className="font-display text-xl sm:text-2xl md:text-4xl font-semibold text-accent mt-2 sm:mt-3"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 3, repeat: Infinity, delay: index * 0.3 }}
                   >

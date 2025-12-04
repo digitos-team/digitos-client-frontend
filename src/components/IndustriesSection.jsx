@@ -54,19 +54,19 @@ const IndustriesSection = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="container-grid mb-12 md:mb-16">
-          <div className="space-y-3 md:space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
+        <div className="container-grid mb-8 md:mb-16">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-accent">
               Industries
             </p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary">
+            <h2 className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-primary">
               Deep domain expertise across regulated and high-growth sectors.
             </h2>
-            <p className="text-base md:text-lg text-black/70 max-w-3xl leading-relaxed">
+            <p className="text-sm md:text-lg text-black/70 max-w-3xl leading-relaxed">
               We embed subject-matter experts and solution architects to tailor roadmaps to your industry's compliance and scaling needs.
             </p>
-            <p className="text-sm text-black/50 flex items-center gap-2 pt-2">
-              <ChevronRight size={16} className="text-accent" />
+            <p className="text-xs sm:text-sm text-black/50 flex items-center gap-2 pt-1 sm:pt-2">
+              <ChevronRight size={14} className="text-accent sm:w-4 sm:h-4" />
               Scroll horizontally to explore more industries
             </p>
           </div>
@@ -82,38 +82,38 @@ const IndustriesSection = () => {
               WebkitOverflowScrolling: "touch",
             }}
           >
-            <div className="flex gap-6 md:gap-8 px-4 md:px-6 min-w-max">
+            <div className="flex gap-4 sm:gap-6 md:gap-8 px-3 sm:px-4 md:px-6 min-w-max">
               {industries.map((industry) => (
                 <Link
                   key={industry.title}
                   to={industry.path}
                   className="block"
                 >
-                  <div className="group flex-shrink-0 w-72 md:w-80 rounded-3xl border-2 border-black/8 bg-white p-8 shadow-sm transition-all duration-300 cursor-pointer hover:border-accent/40 hover:shadow-lg scroll-snap-align-start">
+                  <div className="group flex-shrink-0 w-56 sm:w-64 md:w-80 rounded-2xl sm:rounded-3xl border-2 border-black/8 bg-white p-5 sm:p-6 md:p-8 shadow-sm transition-all duration-300 cursor-pointer hover:border-accent/40 hover:shadow-lg scroll-snap-align-start">
                     {/* Icon */}
-                    <div className="text-5xl md:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-3xl sm:text-4xl md:text-6xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                       {industry.icon}
                     </div>
 
                     {/* Title Badge */}
-                    <p className="text-xs md:text-xs uppercase tracking-[0.4em] text-accent font-semibold mb-3">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-accent font-semibold mb-2 sm:mb-3">
                       {industry.title}
                     </p>
 
                     {/* Card Title */}
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-primary group-hover:text-accent transition-colors duration-300">
+                    <h3 className="font-display text-base sm:text-lg md:text-2xl font-semibold text-primary group-hover:text-accent transition-colors duration-300">
                       {industry.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-3 text-sm md:text-base text-black/70 leading-relaxed">
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-black/70 leading-relaxed">
                       {industry.description}
                     </p>
 
                     {/* Arrow Indicator */}
-                    <div className="mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-xs font-semibold uppercase tracking-wide">Explore</span>
-                      <ArrowRight size={16} />
+                    <div className="mt-4 sm:mt-6 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide">Explore</span>
+                      <ArrowRight size={14} className="sm:w-4 sm:h-4" />
                     </div>
 
                     {/* Hover line */}
@@ -129,8 +129,8 @@ const IndustriesSection = () => {
         </div>
 
         {/* Scroll Instructions */}
-        <div className="container-grid mt-8 text-center">
-          <p className="text-xs text-black/40">
+        <div className="container-grid mt-5 sm:mt-8 text-center">
+          <p className="text-[10px] sm:text-xs text-black/40">
             ← Scroll to explore more →
           </p>
         </div>
