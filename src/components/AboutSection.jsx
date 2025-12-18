@@ -89,7 +89,7 @@ const AboutSection = ({ compact = false }) => {
       </div>
 
       <div className="relative container-grid flex justify-center">
-        {/* Glass Card */}
+      
         <Motion.div
           ref={cardRef}
           variants={containerVariants}

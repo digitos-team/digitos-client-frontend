@@ -43,6 +43,12 @@ const industries = [
     description: "Lab report automation, sample tracking, and diagnostic workflow management.",
     icon: "🧬",
     path: "/industries/pathology"
+  },
+  {
+    title: "Kuber Project",
+    description: "Manage products and customer interactions with simplicity and efficiency.",
+    icon: "📦",
+    path: "/industries/kuber-project"
   }
 ];
 

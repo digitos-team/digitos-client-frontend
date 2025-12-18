@@ -12,6 +12,7 @@ const Career = () => {
   const formRef = useRef(null);
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -35,6 +36,8 @@ const Career = () => {
         setJobs(response.data);
       } catch (error) {
         console.error("Error fetching job positions:", error);
+        const errorMessage = error?.message || (typeof error === 'string' ? error : "Failed to load job positions. Please try again.");
+        setError(errorMessage);
         setJobs([]);
       } finally {
         setLoading(false);
@@ -119,6 +122,16 @@ const Career = () => {
           {loading ? (
             <div className="flex justify-center items-center py-12 sm:py-16 md:py-20">
               <Loader2 className="animate-spin text-accent" size={36} />
+            </div>
+          ) : error ? (
+            <div className="flex flex-col justify-center items-center py-12 sm:py-16 md:py-20 text-center">
+              <p className="text-red-500 font-medium text-lg mb-4">{error}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:bg-accent"
+              >
+                Try Again
+              </button>
             </div>
           ) : jobs.length === 0 ? (
             <div className="text-center py-12 sm:py-16 md:py-20">

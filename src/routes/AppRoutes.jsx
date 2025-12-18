@@ -29,6 +29,7 @@ const Ecommerce = lazy(() => import('../pages/industries/Ecommerce'))
 const TicketRaisingTool = lazy(() => import('../pages/industries/TicketRaisingTool'))
 const FinancialServices = lazy(() => import('../pages/industries/FinancialServices'))
 const Mobility = lazy(() => import('../pages/industries/Mobility'))
+const KuberProject = lazy(() => import('../pages/industries/KuberProject'))
 
 import ProtectedRoute from '../components/Admin Folder/ProtectedRoute'
 
@@ -65,6 +66,7 @@ const AppRoutes = () => {
           <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
           <Route path="/industries/financial-services" element={<FinancialServices />} />
           <Route path="/industries/mobility" element={<Mobility />} />
+          <Route path="/industries/kuber-project" element={<KuberProject />} />
           <Route path="/industries/pathology" element={<Pathology />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<ContactForm />} />
