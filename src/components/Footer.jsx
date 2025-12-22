@@ -77,10 +77,10 @@ const Footer = () => {
               href="https://maps.app.goo.gl/5XVDchMPkCC9cRyb9"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline flex items-center gap-2"
+              className="hover:underline flex items-start gap-2"
             >
-              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 shrink-0" />
-              <span>Plot No 7, N-11 K-Cidco, Chattrapati Sambhajinagar</span>
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 shrink-0 mt-1" />
+              <span>Tea Point, Rashtrawadi Bhavan, Plot No: 7, First Floor, Shree Sanjivani, to, DMart Road, near Harsul Road, Hudco, N 11, Chhatrapati Sambhajinagar, Maharashtra 431003</span>
             </a>
 
 

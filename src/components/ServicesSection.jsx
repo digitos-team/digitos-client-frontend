@@ -10,6 +10,12 @@ import {
 
 const services = [
   {
+    title: "Automation",
+    description: "Automate repetitive business workflows to reduce errors, save time, and scale operations.",
+    icon: Rocket,
+    link: "/services/automation",
+  },
+  {
     title: "App Development",
     description:
       "Custom mobile applications for iOS and Android, built for performance and scalability.",

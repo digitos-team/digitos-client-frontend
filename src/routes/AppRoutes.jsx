@@ -18,6 +18,7 @@ const PayrollManagement = lazy(() => import('../pages/services/PayrollManagement
 const ERPSolutions = lazy(() => import('../pages/services/ERPSolutions'))
 const CloudDevOps = lazy(() => import('../pages/services/CloudDevOps'))
 const AIToolDevelopment = lazy(() => import('../pages/services/AIToolDevelopment'))
+const Automation = lazy(() => import('../pages/services/Automation'))
 
 
 // Industry product pages
@@ -51,6 +52,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/automation" element={<Automation />} />
           <Route path="/services/app-development" element={<AppDevelopment />} />
           <Route path="/services/software-development" element={<SoftwareDevelopment />} />
           <Route path="/services/payroll-management" element={<PayrollManagement />} />
