@@ -3,12 +3,9 @@ import { store } from '../components/Admin Folder/redux/store';
 import { logout } from '../components/Admin Folder/redux/authSlice';
 
 // Create axios instance with base configuration
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
-console.log("Axios Base URL:", baseURL);
-
 const axiosInstance = axios.create({
-    baseURL,
-    timeout: 10000,
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000',
+    timeout: 30000,
     headers: {
         'Content-Type': 'application/json',
     },
