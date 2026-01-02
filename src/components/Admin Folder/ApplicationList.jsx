@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { applicationAPI } from './api/api';
 import { Search, Trash2, FileText, Calendar, Phone, User } from 'lucide-react';
 
@@ -47,9 +48,10 @@ const ApplicationList = () => {
         if (window.confirm('Are you sure you want to delete this application?')) {
             try {
                 await applicationAPI.deleteApplication(id);
+                toast.success('Application deleted successfully');
                 fetchApplications(); // Refresh list
             } catch (err) {
-                alert(err.response?.data?.message || 'Failed to delete application');
+                toast.error(err.response?.data?.message || 'Failed to delete application');
             }
         }
     };

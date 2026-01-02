@@ -26,7 +26,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
     const navItems = [
         { path: '/admin/applications', label: 'Applications', icon: LayoutDashboard },
-        { path: '/admin/add-job', label: 'Add Job', icon: Briefcase },
+
         { path: '/admin/messages', label: 'Messages', icon: MessageSquare },
     ];
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { clientMessageAPI } from './api/api';
 import { MessageSquare, Trash2, X, Mail, Phone, Building, Clock } from 'lucide-react';
 
@@ -29,10 +30,11 @@ const ClientMessages = () => {
         if (window.confirm('Are you sure you want to delete this message?')) {
             try {
                 await clientMessageAPI.deleteClientMessage(id);
+                toast.success('Message deleted successfully');
                 setSelectedMessage(null);
                 fetchMessages();
             } catch (err) {
-                alert(err.response?.data?.message || 'Failed to delete message');
+                toast.error(err.response?.data?.message || 'Failed to delete message');
             }
         }
     };

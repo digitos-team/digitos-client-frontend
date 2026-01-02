@@ -30,14 +30,14 @@ const Ecommerce = lazy(() => import('../pages/industries/Ecommerce'))
 const TicketRaisingTool = lazy(() => import('../pages/industries/TicketRaisingTool'))
 const FinancialServices = lazy(() => import('../pages/industries/FinancialServices'))
 const Mobility = lazy(() => import('../pages/industries/Mobility'))
-const KuberProject = lazy(() => import('../pages/industries/KuberProject'))
+const KuberProject = lazy(() => import('../pages/industries/AgricultureProject'))
 
 import ProtectedRoute from '../components/Admin Folder/ProtectedRoute'
 
 // Admin Components
 const Login = lazy(() => import('../components/Admin Folder/Login'))
 const ApplicationList = lazy(() => import('../components/Admin Folder/ApplicationList'))
-const AddJobPosition = lazy(() => import('../components/Admin Folder/AddJobPosition'))
+
 const ClientMessages = lazy(() => import('../components/Admin Folder/ClientMessages'))
 
 const PublicLayout = lazy(() => import('./PublicLayout'))
@@ -68,7 +68,7 @@ const AppRoutes = () => {
           <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
           <Route path="/industries/financial-services" element={<FinancialServices />} />
           <Route path="/industries/mobility" element={<Mobility />} />
-          <Route path="/industries/kuber-project" element={<KuberProject />} />
+          <Route path="/industries/agricultural-website" element={<KuberProject />} />
           <Route path="/industries/pathology" element={<Pathology />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<ContactForm />} />
@@ -84,7 +84,7 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }>
           <Route path="/admin/applications" element={<ApplicationList />} />
-          <Route path="/admin/add-job" element={<AddJobPosition />} />
+
           <Route path="/admin/messages" element={<ClientMessages />} />
         </Route>
 

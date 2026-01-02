@@ -134,6 +134,37 @@ const Industries = () => {
                                 </div>
                             </Motion.div>
                         </Link>
+
+                        {/* Pathology System */}
+                        <Link to="/industries/pathology">
+                            <Motion.div
+                                initial={{ opacity: 0, y: 25 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                className="group rounded-2xl sm:rounded-3xl border border-yellow-200 bg-gradient-to-br from-yellow-50 to-white p-5 sm:p-6 md:p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-xl cursor-pointer"
+                            >
+                                <div className="mb-3 sm:mb-4 inline-flex rounded-xl sm:rounded-2xl bg-yellow-100 px-3 sm:px-4 py-1.5 sm:py-2">
+                                    <span className="text-xs sm:text-sm font-semibold text-yellow-700">Product</span>
+                                </div>
+                                <h3 className="font-display text-lg sm:text-xl md:text-2xl font-bold text-black">
+                                    Pathology Management System
+                                </h3>
+                                <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-black/70 leading-relaxed">
+                                    Smart, automated solutions for pathology labs — faster reporting, sample tracking, and diagnostic workflow management.
+                                </p>
+                                <div className="mt-4 sm:mt-6 flex flex-wrap gap-2">
+                                    {["Lab Automation", "Diagnostics", "Healthcare", "Reporting"].map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 rounded-full bg-yellow-100 text-yellow-700"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </Motion.div>
+                        </Link>
                     </div>
                 </div>
             </section>

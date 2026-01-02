@@ -1,4 +1,5 @@
 import { motion as Motion } from "framer-motion";
+import { toast } from 'react-hot-toast';
 import { useState, useRef } from "react";
 import { addClientMessage } from "../api/api";
 
@@ -22,13 +23,13 @@ const ContactForm = () => {
     // ✅ Frontend validation matching schema (5 fields only)
     const requiredFields = ['name', 'email', 'phone', 'company', 'message'];
     const missing = requiredFields.filter(field => !reqData[field] || reqData[field].trim() === '');
-    
+
     // ✅ Phone 10-digit validation
-if (!/^\d{10}$/.test(reqData.phone)) {
-  setSubmitError("Phone number must be exactly 10 digits");
-  setLoading(false);
-  return;
-}
+    if (!/^\d{10}$/.test(reqData.phone)) {
+      setSubmitError("Phone number must be exactly 10 digits");
+      setLoading(false);
+      return;
+    }
 
     if (missing.length > 0) {
       setSubmitError(`Please fill: ${missing.join(', ')}`);
@@ -41,7 +42,7 @@ if (!/^\d{10}$/.test(reqData.phone)) {
 
     try {
       await addClientMessage(reqData);
-      alert("✅ Message sent successfully!");
+      toast.success("Message sent successfully!");
       e.target.reset();
     } catch (err) {
       console.error('❌ Error:', err);
@@ -124,8 +125,8 @@ if (!/^\d{10}$/.test(reqData.phone)) {
             whileTap={{ scale: 0.98 }}
             className="md:col-span-2 text-center"
           >
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={loading}
               className="rounded-full bg-yellow-500 hover:bg-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed text-black font-semibold px-10 py-3 shadow-md transition-all hover:shadow-lg w-full md:w-auto"
             >

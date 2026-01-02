@@ -38,17 +38,12 @@ const industries = [
     icon: "🚗",
     path: "/industries/mobility"
   },
+
   {
-    title: "Pathology",
-    description: "Lab report automation, sample tracking, and diagnostic workflow management.",
-    icon: "🧬",
-    path: "/industries/pathology"
-  },
-  {
-    title: "Kuber Project",
+    title: "Agricultural Website",
     description: "Manage products and customer interactions with simplicity and efficiency.",
     icon: "📦",
-    path: "/industries/kuber-project"
+    path: "/industries/agricultural-website"
   }
 ];
 

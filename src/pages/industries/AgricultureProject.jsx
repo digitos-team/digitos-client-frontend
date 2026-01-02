@@ -72,7 +72,7 @@ const benefits = [
     }
 ];
 
-const KuberProject = () => {
+const AgricultureProject = () => {
     return (
         <>
             {/* Hero Section */}
@@ -98,13 +98,13 @@ const KuberProject = () => {
                         </Motion.div>
 
                         <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-primary mb-3 sm:mb-4 md:mb-6">
-                            Kuber Project
+                            Agriculture Project
                         </h1>
                         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black/80 mb-2 sm:mb-3 md:mb-4 font-semibold">
                             Simplicity in Management
                         </p>
                         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black/70 mb-5 sm:mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto">
-                            A web-based application designed to manage products and customer interactions efficiently,
+                            A web-based application designed to manage agricultural products and customer interactions efficiently,
                             focusing on simplicity, usability, and effective administration.
                         </p>
                     </Motion.div>
@@ -188,4 +188,4 @@ const KuberProject = () => {
     );
 };
 
-export default KuberProject;
+export default AgricultureProject;
