@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LoadingFallback from '../components/LoadingFallback'
-import Pathology from '../pages/industries/Pathology'
+
 
 // Lazy load all pages
 const Home = lazy(() => import('../pages/Home'))
@@ -31,6 +31,7 @@ const TicketRaisingTool = lazy(() => import('../pages/industries/TicketRaisingTo
 const FinancialServices = lazy(() => import('../pages/industries/FinancialServices'))
 const Mobility = lazy(() => import('../pages/industries/Mobility'))
 const KuberProject = lazy(() => import('../pages/industries/AgricultureProject'))
+const Pathology = lazy(() => import('../pages/industries/Pathology'))
 
 import ProtectedRoute from '../components/Admin Folder/ProtectedRoute'
 
