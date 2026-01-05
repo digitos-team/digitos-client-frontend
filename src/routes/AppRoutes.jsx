@@ -16,7 +16,6 @@ const AppDevelopment = lazy(() => import('../pages/services/AppDevelopment'))
 const SoftwareDevelopment = lazy(() => import('../pages/services/SoftwareDevelopment'))
 const PayrollManagement = lazy(() => import('../pages/services/PayrollManagement'))
 const ERPSolutions = lazy(() => import('../pages/services/ERPSolutions'))
-const CloudDevOps = lazy(() => import('../pages/services/CloudDevOps'))
 const AIToolDevelopment = lazy(() => import('../pages/services/AIToolDevelopment'))
 const Automation = lazy(() => import('../pages/services/Automation'))
 
@@ -27,9 +26,7 @@ const PayrollManagementProduct = lazy(() => import('../pages/industries/PayrollM
 const HospitalManagement = lazy(() => import('../pages/industries/HospitalManagement'))
 const StudentPortal = lazy(() => import('../pages/industries/StudentPortal'))
 const Ecommerce = lazy(() => import('../pages/industries/Ecommerce'))
-const TicketRaisingTool = lazy(() => import('../pages/industries/TicketRaisingTool'))
 const FinancialServices = lazy(() => import('../pages/industries/FinancialServices'))
-const Mobility = lazy(() => import('../pages/industries/Mobility'))
 const KuberProject = lazy(() => import('../pages/industries/AgricultureProject'))
 const Pathology = lazy(() => import('../pages/industries/Pathology'))
 
@@ -58,7 +55,6 @@ const AppRoutes = () => {
           <Route path="/services/software-development" element={<SoftwareDevelopment />} />
           <Route path="/services/payroll-management" element={<PayrollManagement />} />
           <Route path="/services/erp-solutions" element={<ERPSolutions />} />
-          <Route path="/services/cloud-devops" element={<CloudDevOps />} />
           <Route path="/services/ai-tool-development" element={<AIToolDevelopment />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/next-ignition" element={<NextIgnition />} />
@@ -66,9 +62,7 @@ const AppRoutes = () => {
           <Route path="/industries/hospital-management" element={<HospitalManagement />} />
           <Route path="/industries/student-portal" element={<StudentPortal />} />
           <Route path="/industries/ecommerce" element={<Ecommerce />} />
-          <Route path="/industries/ticket-raising-tool" element={<TicketRaisingTool />} />
           <Route path="/industries/financial-services" element={<FinancialServices />} />
-          <Route path="/industries/mobility" element={<Mobility />} />
           <Route path="/industries/agricultural-website" element={<KuberProject />} />
           <Route path="/industries/pathology" element={<Pathology />} />
           <Route path="/career" element={<Career />} />

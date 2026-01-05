@@ -21,24 +21,11 @@ const industries = [
     path: "/industries/ecommerce"
   },
   {
-    title: "Ticket Raising Tool",
-    description: "Efficient support ticket systems for streamlined issue resolution.",
-    icon: "🎫",
-    path: "/industries/ticket-raising-tool"
-  },
-  {
     title: "Financial Services",
     description: "Digital banking, wealth platforms, and compliance automation.",
     icon: "💳",
     path: "/industries/financial-services"
   },
-  {
-    title: "Mobility",
-    description: "Fleet telematics, connected vehicles, and EV charging networks.",
-    icon: "🚗",
-    path: "/industries/mobility"
-  },
-
   {
     title: "Agricultural Website",
     description: "Manage products and customer interactions with simplicity and efficiency.",

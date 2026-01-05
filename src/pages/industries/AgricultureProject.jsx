@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion';
+import { useState } from 'react';
 import {
     ShoppingBag,
     Globe,
@@ -7,10 +8,17 @@ import {
     LayoutDashboard,
     Users,
     CheckCircle2,
-    ArrowRight,
     Languages,
-    ArrowLeftRight
+    ArrowLeftRight,
+    Leaf,
+    Droplets,
+    Phone
 } from 'lucide-react';
+
+import Kuber from '../../assets/Kuber.png';
+import KuberGranual from '../../assets/Kuber Grannual.png';
+import KuberLiquid from '../../assets/Kuber Liquid.png';
+import KuberGetInTouch from '../../assets/Kuber Get-in-touch.png';
 
 const features = [
     {
@@ -73,6 +81,39 @@ const benefits = [
 ];
 
 const AgricultureProject = () => {
+    const [activeProduct, setActiveProduct] = useState('kuber');
+
+    const products = [
+        {
+            id: 'kuber',
+            title: 'Kuber',
+            description: 'Our flagship agricultural product designed for maximum yield.',
+            image: Kuber,
+            icon: ShoppingBag
+        },
+        {
+            id: 'kuber-granual',
+            title: 'Kuber Granual',
+            description: 'Granular formulation for easy application and slow release.',
+            image: KuberGranual,
+            icon: Leaf
+        },
+        {
+            id: 'kuber-liquid',
+            title: 'Kuber Liquid',
+            description: 'Fast-acting liquid solution for immediate crop nutrition.',
+            image: KuberLiquid,
+            icon: Droplets
+        },
+        {
+            id: 'contact',
+            title: 'Get In Touch',
+            description: 'Connect with us for expert agricultural advice and support.',
+            image: KuberGetInTouch,
+            icon: Phone
+        }
+    ];
+
     return (
         <>
             {/* Hero Section */}
@@ -108,6 +149,82 @@ const AgricultureProject = () => {
                             focusing on simplicity, usability, and effective administration.
                         </p>
                     </Motion.div>
+                </div>
+            </section>
+
+            {/* Product Showcase Section */}
+            <section className="page-section bg-gradient-to-b from-white via-gray-50 to-white">
+                <div className="container-grid">
+                    <div className="text-center mb-12">
+                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent mb-4">
+                            Product Showcase
+                        </p>
+                        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-4">
+                            Explore Our Solutions
+                        </h2>
+                        <p className="text-lg text-black/70 max-w-3xl mx-auto">
+                            Discover our range of high-quality agricultural products designed to enhance your farming success.
+                        </p>
+                    </div>
+
+                    {/* Product Tabs */}
+                    <div className="flex flex-wrap justify-center gap-4 mb-8">
+                        {products.map((product) => {
+                            const Icon = product.icon;
+                            return (
+                                <Motion.button
+                                    key={product.id}
+                                    onClick={() => setActiveProduct(product.id)}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className={`flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeProduct === product.id
+                                        ? 'bg-accent text-white shadow-lg'
+                                        : 'bg-white text-accent border-2 border-accent/40 hover:border-accent'
+                                        }`}
+                                >
+                                    <Icon size={20} />
+                                    <span>{product.title}</span>
+                                </Motion.button>
+                            );
+                        })}
+                    </div>
+
+                    {/* Product Display */}
+                    {products.map((product) => (
+                        <Motion.div
+                            key={product.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{
+                                opacity: activeProduct === product.id ? 1 : 0,
+                                y: activeProduct === product.id ? 0 : 20,
+                                display: activeProduct === product.id ? 'block' : 'none'
+                            }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-accent/20">
+                                <div className="mb-6 text-center">
+                                    <h3 className="font-display text-2xl md:text-3xl font-bold text-primary mb-3">
+                                        {product.title}
+                                    </h3>
+                                    <p className="text-lg text-black/70 max-w-2xl mx-auto">
+                                        {product.description}
+                                    </p>
+                                </div>
+
+                                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-accent/20 bg-white">
+                                    <Motion.img
+                                        src={product.image}
+                                        alt={`${product.title} Showcase`}
+                                        className="w-full h-auto"
+                                        initial={{ scale: 1.1 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.6 }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-accent/10 to-transparent pointer-events-none"></div>
+                                </div>
+                            </div>
+                        </Motion.div>
+                    ))}
                 </div>
             </section>
 

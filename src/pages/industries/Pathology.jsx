@@ -1,5 +1,6 @@
 import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import {
     FileBarChart,
     Receipt,
@@ -11,8 +12,13 @@ import {
     Zap,
     Shield,
     Clock,
-    Layout
+    Layout,
+    BarChart3 // Added for dashboard icon if needed, though using existing ones
 } from 'lucide-react';
+
+import PathDashboard from '../../assets/Path Dashboard.png';
+import ReceptionistDashboard from '../../assets/Receptionist dashboard.png';
+import PathPatient from '../../assets/Path Patient.png';
 
 /* ---------- Feature Data ---------- */
 const modules = [
@@ -118,6 +124,32 @@ const userRoles = [
 
 /* ---------- Main Component ---------- */
 const Pathology = () => {
+    const [activeDashboard, setActiveDashboard] = useState('admin');
+
+    const dashboards = [
+        {
+            id: 'admin',
+            title: 'Admin Dashboard',
+            description: 'Complete control over lab configuration, staff, finances, and settings.',
+            image: PathDashboard,
+            icon: Shield
+        },
+        {
+            id: 'receptionist',
+            title: 'Receptionist Dashboard',
+            description: 'Streamlined interface for daily operations, patient registration, and billing.',
+            image: ReceptionistDashboard,
+            icon: Layout
+        },
+        {
+            id: 'patient',
+            title: 'Patient Records',
+            description: 'Secure access for patients to view test history and download reports.',
+            image: PathPatient,
+            icon: Users
+        }
+    ];
+
     return (
         <>
             {/* Hero Section */}
@@ -163,6 +195,82 @@ const Pathology = () => {
                             </Link>
                         </div>
                     </Motion.div>
+                </div>
+            </section>
+
+            {/* Dashboard Showcase Section */}
+            <section className="page-section bg-gradient-to-b from-white via-slate-50 to-yellow-50">
+                <div className="container-grid">
+                    <div className="text-center mb-12">
+                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-600 mb-4">
+                            Dashboard Previews
+                        </p>
+                        <h2 className="font-display text-3xl md:text-4xl font-bold text-black mb-4">
+                            Powerful Dashboards for Every Role
+                        </h2>
+                        <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                            Experience intuitive, role-specific dashboards designed for seamless lab management
+                        </p>
+                    </div>
+
+                    {/* Dashboard Tabs */}
+                    <div className="flex flex-wrap justify-center gap-4 mb-8">
+                        {dashboards.map((dashboard) => {
+                            const Icon = dashboard.icon;
+                            return (
+                                <Motion.button
+                                    key={dashboard.id}
+                                    onClick={() => setActiveDashboard(dashboard.id)}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className={`flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeDashboard === dashboard.id
+                                        ? 'bg-yellow-500 text-black shadow-lg'
+                                        : 'bg-white text-yellow-600 border-2 border-yellow-500/40 hover:border-yellow-400'
+                                        }`}
+                                >
+                                    <Icon size={20} />
+                                    <span>{dashboard.title}</span>
+                                </Motion.button>
+                            );
+                        })}
+                    </div>
+
+                    {/* Dashboard Display */}
+                    {dashboards.map((dashboard) => (
+                        <Motion.div
+                            key={dashboard.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{
+                                opacity: activeDashboard === dashboard.id ? 1 : 0,
+                                y: activeDashboard === dashboard.id ? 0 : 20,
+                                display: activeDashboard === dashboard.id ? 'block' : 'none'
+                            }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-yellow-500/30">
+                                <div className="mb-6 text-center">
+                                    <h3 className="font-display text-2xl md:text-3xl font-bold text-black mb-3">
+                                        {dashboard.title}
+                                    </h3>
+                                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                                        {dashboard.description}
+                                    </p>
+                                </div>
+
+                                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-yellow-500/30 bg-white">
+                                    <Motion.img
+                                        src={dashboard.image}
+                                        alt={`${dashboard.title} Screenshot`}
+                                        className="w-full h-auto"
+                                        initial={{ scale: 1.1 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.6 }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/10 to-transparent pointer-events-none"></div>
+                                </div>
+                            </div>
+                        </Motion.div>
+                    ))}
                 </div>
             </section>
 

@@ -44,13 +44,6 @@ const services = [
     link: "/services/erp-solutions",
   },
   {
-    title: "Cloud & DevOps",
-    description:
-      "Scalable cloud infrastructure and automated CI/CD pipelines to accelerate deployment and reliability.",
-    icon: Rocket,
-    link: "/services/cloud-devops",
-  },
-  {
     title: "AI Tool Development",
     description:
       "Custom AI tools and applications to automate workflows and improve productivity.",
